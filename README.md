@@ -228,12 +228,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - rodneysimbatholanah@gmail.com
+Rodney Tholanah - rodneysimbatholanah@gmail.com
 
-Project Link: [https://github.com/Rody10/KanbanBoard](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/Rody10/KanbanBoard](https://github.com/Rody10/KanbanBoard)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ACKNOWLEDGMENTS -->
