@@ -2,6 +2,8 @@ using KanbanBoard.Data;
 using KanbanBoard.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using KanbanBoard.Services;
 
 namespace KanbanBoard
 {
@@ -20,6 +22,10 @@ namespace KanbanBoard
             builder.Services.AddDefaultIdentity<KanbanBoardUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            // Add services to the container.
+            builder.Services.AddRazorPages();
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
 
             var app = builder.Build();
 
