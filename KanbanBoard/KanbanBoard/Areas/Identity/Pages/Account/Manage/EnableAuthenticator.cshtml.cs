@@ -9,23 +9,27 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using KanbanBoard.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using KanbanBoard.Models;
 
 namespace KanbanBoard.Areas.Identity.Pages.Account.Manage
 {
     public class EnableAuthenticatorModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<KanbanBoardUser> _userManager;
         private readonly ILogger<EnableAuthenticatorModel> _logger;
         private readonly UrlEncoder _urlEncoder;
+
+        public string QrCodeAsBase64 { get; set; }
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
 
         public EnableAuthenticatorModel(
-            UserManager<IdentityUser> userManager,
+            UserManager<KanbanBoardUser> userManager,
             ILogger<EnableAuthenticatorModel> logger,
             UrlEncoder urlEncoder)
         {
@@ -84,7 +88,7 @@ namespace KanbanBoard.Areas.Identity.Pages.Account.Manage
             public string Code { get; set; }
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<IActionResult> OnGetAsync([FromServices] QRCodeService qRCodeService) // parameter injection used to provide a reference to the QRCodeService signleton service
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -93,6 +97,7 @@ namespace KanbanBoard.Areas.Identity.Pages.Account.Manage
             }
 
             await LoadSharedKeyAndQrCodeUriAsync(user);
+            QrCodeAsBase64 = qRCodeService.GetQRCodeAsBase64(AuthenticatorUri);
 
             return Page();
         }
@@ -142,7 +147,7 @@ namespace KanbanBoard.Areas.Identity.Pages.Account.Manage
             }
         }
 
-        private async Task LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(KanbanBoardUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
@@ -180,7 +185,7 @@ namespace KanbanBoard.Areas.Identity.Pages.Account.Manage
             return string.Format(
                 CultureInfo.InvariantCulture,
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("Microsoft.AspNetCore.Identity.UI"),
+                _urlEncoder.Encode("KanbanBoard"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

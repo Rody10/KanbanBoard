@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using KanbanBoard.Services;
+using QRCoder;
 
 namespace KanbanBoard
 {
@@ -26,6 +27,7 @@ namespace KanbanBoard
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddTransient<IEmailSender, EmailSender>();
+            builder.Services.AddSingleton(new QRCodeService(new QRCodeGenerator()));
 
             var app = builder.Build();
 
