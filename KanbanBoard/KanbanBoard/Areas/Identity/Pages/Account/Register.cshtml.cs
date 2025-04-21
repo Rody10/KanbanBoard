@@ -147,9 +147,8 @@ namespace KanbanBoard.Areas.Identity.Pages.Account
 
                     //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                     //$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    //currently just printing email to console
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by visiting the following URL:\r\n\r\n{callbackUrl}");
+                        $"Please confirm your account:" + callbackUrl);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
