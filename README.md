@@ -105,7 +105,9 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-* [![ASP.NET Core MVC][ASP.NET-Core]][ASP.NET-Core-url]
+* [![ASP.NET Core MVC][ASP.NET-Core]][Entity-Framework-Core-url]
+* [![Entity Framework Core][Entity-Framework-Core]][ASP.NET-Core-url]
+
 <!--* ![ASP.NET Core MVC](https://img.shields.io/badge/ASP.NET_Core_MVC-Framework-blue?style=for-the-badge)-->
 
 <!--This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -292,6 +294,10 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [ASP.NET-Core]: https://img.shields.io/badge/ASP.NET_Core_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white
 [ASP.NET-Core-url]: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-8.0&tabs=visual-studio
+
+[Entity-Framework-Core]: https://img.shields.io/badge/Entity_Framework_Core-6b237b?style=for-the-badge&logoColor=white
+[Entity-Framework-Core-url]: https://learn.microsoft.com/en-us/ef/core/
+
 
 
 
