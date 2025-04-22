@@ -298,6 +298,9 @@ Use this space to list resources you find helpful and would like to give credit 
 [Entity-Framework-Core]: https://img.shields.io/badge/Entity_Framework_Core-6b237b?style=for-the-badge&logoColor=white
 [Entity-Framework-Core-url]: https://learn.microsoft.com/en-us/ef/core/
 
+[MSSQL-Server]: https://img.shields.io/badge/Entity_Framework_Core-6b237b?style=for-the-badge&logoColor=white
+[MSSQL-Server-url]: https://learn.microsoft.com/en-us/ef/core/
+
 
 
 
