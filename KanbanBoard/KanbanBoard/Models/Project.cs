@@ -6,9 +6,13 @@ namespace KanbanBoard.Models
     public class Project
     {
         [Key]
+        [Display (Name = "ID")]
         public int ProjectId { get; set; }
+        [Display(Name = "Name")]
         public string? ProjectName { get; set; }
+        [Display(Name = "Description")]
         public string? ProjectDescription { get; set; }
+        [Display(Name = "Creation Date")]
         public DateOnly ProjectCreationDate { get; set; }
 
         

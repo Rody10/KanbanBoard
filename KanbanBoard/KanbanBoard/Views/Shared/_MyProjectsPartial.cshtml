@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<KanbanBoardUser> SignInManager
+@inject UserManager<KanbanBoardUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">My Projects</a>
+    </li>
+}
+
