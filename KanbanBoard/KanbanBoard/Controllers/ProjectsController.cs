@@ -49,7 +49,14 @@ namespace KanbanBoard.Controllers
         public IActionResult Create()
         {
             ViewData["ProjectOwnerId"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            DateTime currentDateAndTime = DateTime.Now;
+            var project = new Project
+            {
+                ProjectCreationDate = DateOnly.FromDateTime(currentDateAndTime),
+                ProjectOwnerId = null!,   // this will be set in view
+                KanbanBoardUser = null!
+            };
+            return View(project);
         }
 
         // POST: Projects/Create

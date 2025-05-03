@@ -24,12 +24,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProjectCreationDate" class="control-label"></label>
-                <input asp-for="ProjectCreationDate" class="form-control" />
+                <input asp-for="ProjectCreationDate" class="form-control" readonly />
                 <span asp-validation-for="ProjectCreationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProjectOwnerId" class="control-label"></label>
-                <select asp-for="ProjectOwnerId" class ="form-control" asp-items="ViewBag.ProjectOwnerId"></select>
+                <input type="hidden" asp-for="ProjectOwnerId" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
