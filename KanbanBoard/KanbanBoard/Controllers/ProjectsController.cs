@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KanbanBoard.Data;
 using KanbanBoard.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace KanbanBoard.Controllers
 {
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<KanbanBoardUser> _userManager;
 
-        public ProjectsController(ApplicationDbContext context)
+        public ProjectsController(ApplicationDbContext context, UserManager<KanbanBoardUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Projects
@@ -50,11 +53,11 @@ namespace KanbanBoard.Controllers
         {
             ViewData["ProjectOwnerId"] = new SelectList(_context.Users, "Id", "Id");
             DateTime currentDateAndTime = DateTime.Now;
+            var userId = _userManager.GetUserId(User);
             var project = new Project
             {
                 ProjectCreationDate = DateOnly.FromDateTime(currentDateAndTime),
-                ProjectOwnerId = null!,   // this will be set in view
-                KanbanBoardUser = null!
+                ProjectOwnerId = userId, 
             };
             return View(project);
         }
