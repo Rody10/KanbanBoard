@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KanbanBoard.Data;
 using KanbanBoard.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace KanbanBoard.Controllers
 {
     public class KanbanBoardTasksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<KanbanBoardUser> _userManager;
 
-        public KanbanBoardTasksController(ApplicationDbContext context)
+        public KanbanBoardTasksController(ApplicationDbContext context, UserManager<KanbanBoardUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: KanbanBoardTasks
@@ -49,7 +52,12 @@ namespace KanbanBoard.Controllers
         public IActionResult Create()
         {
             ViewData["TaskAssignedUserId"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            var userId = _userManager.GetUserId(User);
+            var kanbanBoardTask = new KanbanBoardTask
+            {
+                TaskAssignedUserId = userId
+            };
+            return View(kanbanBoardTask);
         }
 
         // POST: KanbanBoardTasks/Create
