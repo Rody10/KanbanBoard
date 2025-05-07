@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using KanbanBoard.Data;
 using KanbanBoard.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KanbanBoard.Controllers
 {
+    [Authorize]
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
