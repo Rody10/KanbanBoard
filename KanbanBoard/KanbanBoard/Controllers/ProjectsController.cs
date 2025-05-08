@@ -27,8 +27,12 @@ namespace KanbanBoard.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Projects.Include(p => p.KanbanBoardUser);
-            return View(await applicationDbContext.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+
+            var projects = _context.Projects
+                .Include(p => p.KanbanBoardUser)
+                .Where(p => p.ProjectOwnerId == userId);
+            return View(await projects.ToListAsync());
         }
 
         // GET: Projects/Details/5
