@@ -31,7 +31,7 @@ namespace KanbanBoard.Controllers
 
             var projects = _context.Projects
                 .Include(p => p.KanbanBoardUser)
-                .Where(p => p.ProjectOwnerId == userId);
+                .Where(p => p.ProjectOwnerId == userId); // check ownership
             return View(await projects.ToListAsync());
         }
 
@@ -43,9 +43,10 @@ namespace KanbanBoard.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects
+            /*var project = await _context.Projects
                 .Include(p => p.KanbanBoardUser)
-                .FirstOrDefaultAsync(m => m.ProjectId == id);
+                .FirstOrDefaultAsync(m => m.ProjectId == id);*/
+            var project = await GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(id);
             if (project == null)
             {
                 return NotFound();
@@ -93,7 +94,8 @@ namespace KanbanBoard.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects.FindAsync(id);
+            //var project = await _context.Projects.FindAsync(id);
+            var project = await GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(id);
             if (project == null)
             {
                 return NotFound();
@@ -146,9 +148,10 @@ namespace KanbanBoard.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects
+            /*var project = await _context.Projects
                 .Include(p => p.KanbanBoardUser)
-                .FirstOrDefaultAsync(m => m.ProjectId == id);
+                .FirstOrDefaultAsync(m => m.ProjectId == id);*/
+            var project = await GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(id);
             if (project == null)
             {
                 return NotFound();
@@ -175,6 +178,12 @@ namespace KanbanBoard.Controllers
         private bool ProjectExists(int id)
         {
             return _context.Projects.Any(e => e.ProjectId == id);
+        }
+
+        private async Task<Project?> GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(int? id)
+        {
+            var userId = _userManager.GetUserId(User);
+            return await _context.Projects.FirstOrDefaultAsync(p => (p.ProjectId == id) && (p.ProjectOwnerId == userId));
         }
     }
 }
