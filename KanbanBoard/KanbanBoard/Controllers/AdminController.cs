@@ -23,5 +23,35 @@ namespace KanbanBoard.Controllers
             var kanbanBoarcdUsers = _context.KanbanBoardUsers;
             return View(await kanbanBoarcdUsers.ToListAsync());
         }
+
+  
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var user = await _context.KanbanBoardUsers.FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var user = await _context.KanbanBoardUsers.FirstOrDefaultAsync(u => u.Id == id);
+            if (user != null)
+            {
+                _context.Users.Remove(user);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

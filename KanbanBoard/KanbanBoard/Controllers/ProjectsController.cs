@@ -147,10 +147,6 @@ namespace KanbanBoard.Controllers
             {
                 return NotFound();
             }
-
-            /*var project = await _context.Projects
-                .Include(p => p.KanbanBoardUser)
-                .FirstOrDefaultAsync(m => m.ProjectId == id);*/
             var project = await GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(id);
             if (project == null)
             {
@@ -165,7 +161,7 @@ namespace KanbanBoard.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var project = await _context.Projects.FindAsync(id);
+            var project = await GetUserProjectAndCheckIfUserIsAuthorisedToAccessProjectAsync(id);
             if (project != null)
             {
                 _context.Projects.Remove(project);

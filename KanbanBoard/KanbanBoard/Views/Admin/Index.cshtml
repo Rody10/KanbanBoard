@@ -29,6 +29,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
+                <td><a asp-controller="Admin" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
             </tr>
         }
     </tbody>
