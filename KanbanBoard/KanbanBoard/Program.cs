@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using KanbanBoard.Services;
 using QRCoder;
+using KanbanBoard.Controllers;
 
 namespace KanbanBoard
 {
@@ -76,6 +77,8 @@ namespace KanbanBoard
                     user.UserName = email;
                     user.Email = email;
                     user.EmailConfirmed = true;
+                    user.FirstName = "Admin";
+                    user.LastName = "Admin";
 
                     await userManager.CreateAsync(user, password);
 
