@@ -9,40 +9,73 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table>
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TaskName)
+                @Html.Raw("To Do")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TaskDescription)
+                @Html.Raw("Do Today")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KanbanBoardUser)
+                @Html.Raw("In Progress")
+            </th>
+            <th>
+                @Html.Raw("Done")
+            </th>
+
+            <th>
+               
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskDescription)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.KanbanBoardUser.FirstName)
-                    @Html.DisplayFor(modelItem => item.KanbanBoardUser.LastName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TaskId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.TaskStatus == KanbanBoardTask.Status.ToDo)
+                    {
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                        continue;
+                    }
+                </td>
+
+                <td>
+                    @if (item.TaskStatus == KanbanBoardTask.Status.DoToday)
+                    {
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                        continue;
+                    }
+                </td>
+
+                <td>
+                    @if (item.TaskStatus == KanbanBoardTask.Status.InProgress)
+                    {
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                        continue;
+                    }
+                </td>
+
+                <td>
+                    @if (item.TaskStatus == KanbanBoardTask.Status.Done)
+                    {
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                        continue;
+                    }
+
+                </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TaskId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TaskId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
