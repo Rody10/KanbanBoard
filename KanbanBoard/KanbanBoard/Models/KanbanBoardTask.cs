@@ -26,8 +26,11 @@ namespace KanbanBoard.Models
         public string? TaskDescription {get; set;}
         [ForeignKey("KanbanBoardUser")]
         [Display(Name = "Assigned User ID")]
-        public required string TaskAssignedUserId { get; set; }
+        public required string TaskAssignedUserId { get; set; } 
         [Display(Name = "Assigned To")]
         public KanbanBoardUser? KanbanBoardUser { get; set; }
+
+        [ForeignKey("Project")]
+        public int ProjectID { get; set; }
     }
 }

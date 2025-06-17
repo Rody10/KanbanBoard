@@ -16,6 +16,8 @@ namespace KanbanBoard.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; } = string.Empty;
 
+        public ICollection<Project> Projects { get; set; } = new List<Project>();
+
         [Display(Name = "Account Creation Date")]
         public DateOnly? AccountCreationDate { get; set; }
 

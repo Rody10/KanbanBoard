@@ -36,7 +36,7 @@
                 @Html.DisplayFor(modelItem => item.ProjectCreationDate)
             </td>
             <td>
-                <a asp-controller="KanbanBoardTasks" asp-action="Index" asp-route-id="@item.ProjectId">Board</a> |
+                <a asp-controller="KanbanBoardTasks" asp-action="Index" asp-route-ProjectId="@item.ProjectId">Board</a> |
                 <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ProjectId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Humanizer;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KanbanBoard.Models
@@ -18,7 +19,8 @@ namespace KanbanBoard.Models
         
         [ForeignKey("KanbanBoardUser")]
         public required string ProjectOwnerId { get; set; }
-        public KanbanBoardUser? KanbanBoardUser { get; set; } // this is nullable because i need to be able to create a Project object without this Field and send it to the view
+
+        public KanbanBoardUser? KanbanBoardUser { get; set; } // this is nullable because i need to be able to create a Project object without this Field and send it to the view. 
         
 
         public ICollection<KanbanBoardTask> KanbanBoardTasks { get; set; } = new List<KanbanBoardTask>();

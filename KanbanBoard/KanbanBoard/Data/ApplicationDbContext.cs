@@ -13,5 +13,19 @@ namespace KanbanBoard.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Project>()
+                .HasOne(p => p.KanbanBoardUser)
+                .WithMany(u => u.Projects) 
+                .HasForeignKey(p => p.ProjectOwnerId)
+                // Disable cascade delete (User -> Project).
+                // Doing this to prevent cascade error when adding ProjectID FK to Task 
+                .OnDelete(DeleteBehavior.Restrict);
+            
+        }
     }
+
 }

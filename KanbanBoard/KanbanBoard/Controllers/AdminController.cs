@@ -47,7 +47,13 @@ namespace KanbanBoard.Controllers
             var user = await _context.KanbanBoardUsers.FirstOrDefaultAsync(u => u.Id == id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _context.Users.Remove(user); // Delete user
+                // Search for all projects owned by the user and delete them
+                var projects = _context.Projects
+                    .Include(p => p.KanbanBoardUser)
+                    .Where(p => p.ProjectOwnerId == user.Id)
+                    .ToList();
+                _context.Projects.RemoveRange(projects); 
             }
 
             await _context.SaveChangesAsync();

@@ -25,9 +25,12 @@ namespace KanbanBoard.Controllers
         }
 
         // GET: KanbanBoardTasks
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int ProjectId)
         {
-            var applicationDbContext = _context.KanbanBoardTasks.Include(k => k.KanbanBoardUser);
+            var applicationDbContext = _context.KanbanBoardTasks
+                .Include(t => t.KanbanBoardUser)
+                .Where(t => t.ProjectID == ProjectId);
+            ViewData["ProjectID"] = ProjectId; // This is needed because the tasks index page allows a user to create a new task which needs a ProjectId foreign key
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -51,13 +54,14 @@ namespace KanbanBoard.Controllers
         }
 
         // GET: KanbanBoardTasks/Create
-        public IActionResult Create()
+        public IActionResult Create(int ProjectId)
         {
             ViewData["TaskAssignedUserId"] = new SelectList(_context.Users, "Id", "Id");
             var userId = _userManager.GetUserId(User);
             var kanbanBoardTask = new KanbanBoardTask
             {
-                TaskAssignedUserId = userId
+                TaskAssignedUserId = userId,
+                ProjectID = ProjectId
             };
             return View(kanbanBoardTask);
         }
@@ -67,13 +71,13 @@ namespace KanbanBoard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TaskId,TaskName,TaskDescription,TaskAssignedUserId")] KanbanBoardTask kanbanBoardTask)
+        public async Task<IActionResult> Create([Bind("TaskId,TaskName,TaskDescription,TaskAssignedUserId,ProjectID")] KanbanBoardTask kanbanBoardTask)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(kanbanBoardTask);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { ProjectId = kanbanBoardTask.ProjectID });
             }
             ViewData["TaskAssignedUserId"] = new SelectList(_context.Users, "Id", "Id", kanbanBoardTask.TaskAssignedUserId);
             return View(kanbanBoardTask);
