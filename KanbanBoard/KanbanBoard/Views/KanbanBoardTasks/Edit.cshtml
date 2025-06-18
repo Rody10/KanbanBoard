@@ -13,6 +13,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TaskId" />
+            <input type="hidden" asp-for="ProjectID" />
             <div class="form-group">
                 <label asp-for="TaskName" class="control-label"></label>
                 <input asp-for="TaskName" class="form-control" />
@@ -22,6 +23,11 @@
                 <label asp-for="TaskDescription" class="control-label"></label>
                 <input asp-for="TaskDescription" class="form-control" />
                 <span asp-validation-for="TaskDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="TaskStatus"
+                    asp-items="Html.GetEnumSelectList<KanbanBoardTask.Status>()">
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="TaskAssignedUserId" class="control-label"></label>

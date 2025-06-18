@@ -105,7 +105,7 @@ namespace KanbanBoard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TaskId,TaskName,TaskDescription,TaskAssignedUserId")] KanbanBoardTask kanbanBoardTask)
+        public async Task<IActionResult> Edit(int id, [Bind("TaskId,TaskName,TaskDescription,TaskStatus,ProjectID,TaskAssignedUserId")] KanbanBoardTask kanbanBoardTask)
         {
             if (id != kanbanBoardTask.TaskId)
             {
@@ -130,7 +130,7 @@ namespace KanbanBoard.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { ProjectId = kanbanBoardTask.ProjectID });
             }
             ViewData["TaskAssignedUserId"] = new SelectList(_context.Users, "Id", "Id", kanbanBoardTask.TaskAssignedUserId);
             return View(kanbanBoardTask);
