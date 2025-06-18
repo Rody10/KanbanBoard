@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Tasks</h1>
 
 <p>
     <a asp-action="Create" asp-route-ProjectId=@ViewData["ProjectId"]>Create New</a>
@@ -26,7 +26,7 @@
             </th>
 
             <th>
-               
+               @Html.Raw("Options")
             </th>
             <th></th>
         </tr>
@@ -39,7 +39,6 @@
                     @if (item.TaskStatus == KanbanBoardTask.Status.ToDo)
                     {
                         @Html.DisplayFor(modelItem => item.TaskName)
-                        continue;
                     }
                 </td>
 
@@ -47,7 +46,6 @@
                     @if (item.TaskStatus == KanbanBoardTask.Status.DoToday)
                     {
                         @Html.DisplayFor(modelItem => item.TaskName)
-                        continue;
                     }
                 </td>
 
@@ -55,7 +53,6 @@
                     @if (item.TaskStatus == KanbanBoardTask.Status.InProgress)
                     {
                         @Html.DisplayFor(modelItem => item.TaskName)
-                        continue;
                     }
                 </td>
 
@@ -63,11 +60,9 @@
                     @if (item.TaskStatus == KanbanBoardTask.Status.Done)
                     {
                         @Html.DisplayFor(modelItem => item.TaskName)
-                        continue;
                     }
 
                 </td>
-
 
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.TaskId">Edit</a> |
@@ -76,6 +71,7 @@
                 </td>
             </tr>
         }
+  
     </tbody>
 </table>
 
