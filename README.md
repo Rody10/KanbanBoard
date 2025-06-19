@@ -183,10 +183,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] User account creation and authentication
-- [ ] Project creation & management
-- [ ] Task creation & status updates
-- [ ] Database setup (tasks, users, projects)
-- [ ] Basic frontend UI
+- [x] Project creation & management
+- [x] Task creation & status updates
+- [x] Database setup (tasks, users, projects)
+- [x] Basic frontend UI
 - [ ] Deployment
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
