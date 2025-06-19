@@ -105,7 +105,7 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-* [![ASP.NET Core][ASP.NET-Core]][Entity-Framework-Core-url]
+* [![ASP.NET Core MVC][ASP.NET-Core]][Entity-Framework-Core-url]
 * [![Entity Framework Core][Entity-Framework-Core]][ASP.NET-Core-url]
 * [![Microsoft SQL Server][Microsoft-SQL-Server]][Microsoft-SQL-Server-url]
 
@@ -293,7 +293,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com-->
 
-[ASP.NET-Core]: https://img.shields.io/badge/ASP.NET_Core_512BD4?style=for-the-badge&logo=dotnet&logoColor=white
+[ASP.NET-Core]: https://img.shields.io/badge/ASP.NET_Core_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white
 [ASP.NET-Core-url]: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-8.0&tabs=visual-studio
 
 [Entity-Framework-Core]: https://img.shields.io/badge/Entity_Framework_Core-6b237b?style=for-the-badge&logoColor=white
@@ -301,9 +301,3 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [Microsoft-SQL-Server]: https://img.shields.io/badge/Microsoft_SQL_Server-white?style=for-the-badge&logoColor=white
 [Microsoft-SQL-Server-url]: https://learn.microsoft.com/en-us/sql/sql-server/what-is-sql-server?view=sql-server-ver16
-
-
-
-
-
-
