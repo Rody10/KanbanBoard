@@ -293,7 +293,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com-->
 
-[ASP.NET-Core]: https://img.shields.io/badge/ASP.NET_Core_MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white
+[ASP.NET-Core]: https://img.shields.io/badge/ASP.NET_Core_512BD4?style=for-the-badge&logo=dotnet&logoColor=white
 [ASP.NET-Core-url]: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-8.0&tabs=visual-studio
 
 [Entity-Framework-Core]: https://img.shields.io/badge/Entity_Framework_Core-6b237b?style=for-the-badge&logoColor=white
