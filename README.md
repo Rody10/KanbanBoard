@@ -183,10 +183,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [x] User account creation and authentication
-- [ ] Project creation & management
-- [ ] Task creation & status updates
-- [ ] Database setup (tasks, users, projects)
-- [ ] Basic frontend UI
+- [x] Project creation & management
+- [x] Task creation & status updates
+- [x] Database setup (tasks, users, projects)
+- [x] Basic frontend UI
 - [ ] Deployment
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
@@ -301,9 +301,3 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [Microsoft-SQL-Server]: https://img.shields.io/badge/Microsoft_SQL_Server-white?style=for-the-badge&logoColor=white
 [Microsoft-SQL-Server-url]: https://learn.microsoft.com/en-us/sql/sql-server/what-is-sql-server?view=sql-server-ver16
-
-
-
-
-
-
