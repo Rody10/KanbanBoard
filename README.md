@@ -105,7 +105,7 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-* [![ASP.NET Core MVC][ASP.NET-Core]][Entity-Framework-Core-url]
+* [![ASP.NET Core][ASP.NET-Core]][Entity-Framework-Core-url]
 * [![Entity Framework Core][Entity-Framework-Core]][ASP.NET-Core-url]
 * [![Microsoft SQL Server][Microsoft-SQL-Server]][Microsoft-SQL-Server-url]
 
