@@ -188,6 +188,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Database setup (tasks, users, projects)
 - [x] Basic frontend UI
 - [ ] Deployment
+- [ ] Allow multiple users to collaborate on a single project
+- [ ] Allow users to drag and drop tasks on the board
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
