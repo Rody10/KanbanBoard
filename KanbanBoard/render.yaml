@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: kanbanboard
+    env: docker
+    plan: free
+    region: singapore
+    repo: https://github.com/Rody10/KanbanBoard
+    branch: PostgreSQL
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: CONNECTIONSTRINGS__DEFAULTCONNECTION
+        value: # set in Render dashboard
+      - key: LOGGING__LOGLEVEL__DEFAULT
+        value: Warning
+      - key: LOGGING__LOGLEVEL__MICROSOFT_ASPNETCORE
+        value: Warning
+      - key: EMAIL_CONFIGURATION__EMAIL
+        value: # set in Render dashboard
+      - key: EMAIL_CONFIGURATION__PASSWORD
+        value: # set in Render dashboard
+      - key: EMAIL_CONFIGURATION__HOST
+        value: # set in Render dashboard
+      - key: EMAIL_CONFIGURATION__PORT
+        value: # set in Render dashboard
+      - key: ADMINACCOUNT__EMAIL
+        value: # set in Render dashboard
+      - key: ADMINACCOUNT__PASSWORD
+        value: # set in Render dashboard
