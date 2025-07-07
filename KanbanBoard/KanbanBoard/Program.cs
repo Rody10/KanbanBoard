@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using KanbanBoard.Services;
 using QRCoder;
 using KanbanBoard.Controllers;
+using System.Configuration;
 
 namespace KanbanBoard
 {
@@ -15,10 +16,16 @@ namespace KanbanBoard
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Load configs per environment (Development / Production)
+            builder.Configuration
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables(); // For Supabase
+
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
+                options.UseNpgsql(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<KanbanBoardUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -69,8 +76,9 @@ namespace KanbanBoard
             using (var scope = app.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<KanbanBoardUser>>();
-                string email = "rodney.dev.projects@gmail.com";
-                string password = "Test1234,";
+                var config = app.Services.GetRequiredService<IConfiguration>();
+                string? email = config["AdminAccount:Email"];
+                string? password = config["AdminAccount:Password"];
                 if (await userManager.FindByEmailAsync(email) == null)
                 {
                     var user = new KanbanBoardUser();
@@ -85,7 +93,6 @@ namespace KanbanBoard
                     await userManager.AddToRoleAsync(user, "Admin");
                 }
             }
-
             app.Run();
         }
     }
