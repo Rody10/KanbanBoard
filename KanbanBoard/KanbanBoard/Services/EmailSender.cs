@@ -28,6 +28,7 @@ namespace KanbanBoard.Services
             smtpClient.UseDefaultCredentials = false;
 
             smtpClient.Credentials = new NetworkCredential(originEmail, password);
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
             var message = new MailMessage(originEmail, email, subject, htmlMessage);
 
@@ -36,7 +37,7 @@ namespace KanbanBoard.Services
             Console.WriteLine($"htmlMessage: {htmlMessage}");
             Console.WriteLine($"originEmail: {originEmail}");
             Console.WriteLine($"email: {email}");
-            Console.WriteLine($"password: {password}");
+            //Console.WriteLine($"password: {password}");
             Console.WriteLine($"host: {host}");
             Console.WriteLine($"port: {port}");
 
