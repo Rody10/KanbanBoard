@@ -67,10 +67,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -85,6 +81,18 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+**KanbanBoard** is a lightweight web-based task management system built using **ASP.NET Core MVC** and **Entity Framework Core**. It allows users to create and manage projects with tasks organised in Kanban-style columns such as **To Do**, **In Progress**, and **Done**.
+
+The project demonstrates full-stack development skills, including:
+
+- User authentication and role-based authorisation  
+- Database integration with **PostgreSQL** (via Supabase)  
+- Email confirmation and password reset functionality  
+- Clean, modular architecture following the **MVC pattern**  
+- Deployment using **Docker**, **Supabase** and **Render**
+
+This project was built as a portfolio piece to showcase practical experience with .NET development, modern deployment workflows, and scalable architecture for real-world use cases. You can access the hosted app on https://kanbanboard-jjbq.onrender.com/.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) 
 
@@ -217,7 +225,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Task creation & status updates
 - [x] Database setup (tasks, users, projects)
 - [x] Basic frontend UI
-- [ ] Deployment
+- [x] Deployment
 - [ ] Allow multiple users to collaborate on a single project
 - [ ] Allow users to drag and drop tasks on the board
 
