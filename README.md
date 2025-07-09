@@ -131,6 +131,34 @@ Use the `BLANK_README.md` to get started.
 <!-- GETTING STARTED -->
 ## Getting Started
 
+1. Clone the repository
+   ```sh
+   git clone https://github.com/Rody10/KanbanBoard.git
+   cd KanbanBoard/KanbanBoard
+   ```
+2. Configure user secrets for the local environment
+  ```sh
+  dotnet user-secrets init
+  dotnet user-secrets set "EMAIL_CONFIGURATION:EMAIL" "your_email@gmail.com"
+  dotnet user-secrets set "EMAIL_CONFIGURATION:PASSWORD" "your_app_password"
+  dotnet user-secrets set "ADMINACCOUNT:EMAIL" "admin@example.com"
+  dotnet user-secrets set "ADMINACCOUNT:PASSWORD" "StrongPassword123!"
+  ```
+3. Set the local database connection
+   In ```appsettings.Development.json```, set your connection string to use either SQLite or PostgreSQL locally:
+   ```json
+   "ConnectionStrings": {
+      "DefaultConnection": "Host=localhost;Port=5432;Username=postgres;Password=yourpassword;Database=KanbanBoardDb"
+    }
+   ```
+4. Apply migrations and run the app
+  ```sh
+  dotnet ef database update
+  dotnet run
+  ```
+5. Access the app
+   Open your browser and go to: ```https://localhost:5001```
+
 <!-- This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
