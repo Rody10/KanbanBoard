@@ -107,7 +107,9 @@ Use the `BLANK_README.md` to get started.
 
 * [![ASP.NET Core MVC][ASP.NET-Core]][Entity-Framework-Core-url]
 * [![Entity Framework Core][Entity-Framework-Core]][ASP.NET-Core-url]
-* [![Microsoft SQL Server][Microsoft-SQL-Server]][Microsoft-SQL-Server-url]
+<!--* [![Microsoft SQL Server][Microsoft-SQL-Server]][Microsoft-SQL-Server-url]-->
+* [![PostgreSQL][PostgreSQL]][PostgreSQL-url]
+
 
 <!--* ![ASP.NET Core MVC](https://img.shields.io/badge/ASP.NET_Core_MVC-Framework-blue?style=for-the-badge)-->
 
@@ -303,3 +305,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [Microsoft-SQL-Server]: https://img.shields.io/badge/Microsoft_SQL_Server-white?style=for-the-badge&logoColor=white
 [Microsoft-SQL-Server-url]: https://learn.microsoft.com/en-us/sql/sql-server/what-is-sql-server?view=sql-server-ver16
+
+[PostgreSQL]: https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]: https://www.postgresql.org/
