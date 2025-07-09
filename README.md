@@ -207,6 +207,20 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+![startpage.PNG](images/startpage.PNG)
+The start page shows general information about the KanbanBoard app. It shows links for registering and logging in.
+
+![startpage.PNG](images/registrationpage.PNG)
+The registration page requests a user to enter their details, including their first and last name. After registering, the user would receive an email requesting them to confirm their email address.
+
+After registering, a user would then be able to log in.
+
+![startpage.PNG](images/myprojectslistpage.PNG)
+After logging in, a user can view their projects. If a user clicks on the Board link, the following page will then appear.
+
+![startpage.PNG](images/taskspage.PNG)
+The Tasks page shows the project's tasks in a Kanbanboard-style table. To change the status of a Task from, for example, To-do to Do Today, the user would have to use the Edit button, which allows a user to change the Task's status in addition to its name and description.
+
 
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
@@ -226,6 +240,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Database setup (tasks, users, projects)
 - [x] Basic frontend UI
 - [x] Deployment
+- [ ] Fix logout error
 - [ ] Allow multiple users to collaborate on a single project
 - [ ] Allow users to drag and drop tasks on the board
 
@@ -237,6 +252,14 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 <!-- CONTRIBUTING -->
 ## Contributing
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 <!--
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -276,13 +299,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Rodney Tholanah - rodneysimbatholanah@gmail.com
 
-Project Link: [https://github.com/Rody10/KanbanBoard](https://github.com/Rody10/KanbanBoard)
+Hosted Project Link: https://kanbanboard-jjbq.onrender.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+* This project was inspired by https://kanbanflow.com/
 
 <!--
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
